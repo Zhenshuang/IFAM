@@ -1,7 +1,7 @@
-name: "DBSLMM"
+name: "IFAM"
 output_dir: "docs"
 navbar:
-  title: "DBSLMM"
+  title: "IFAM"
   left:
     - text: "Overview"
       href: index.html
