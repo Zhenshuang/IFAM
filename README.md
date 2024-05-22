@@ -13,11 +13,8 @@ In this softare, we use `**.R` scripts to make the usage of IFAM.
 
 * Phenotype file (e.g. `demo_data/pheno.txt`): this file includes the phenotypic records, the environmental covariates, fixed and random effects. The first column must be the individual id, the second column is phenotypic records (optional), header should be included in the file.
 
-* Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using "**.R" script.
-
 * Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs, note that the genome version of the annotation file and genome file should be the same. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using bedtools, PLINK, vcftools, and other softwares.
-
-
+* 
 For other parapeters, please use the commond "--help"
 
 ### Tutorial for Summary Analysis for Annotations (SAA)
