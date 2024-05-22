@@ -14,7 +14,17 @@ In this softare, we use `**.R` scripts to make the usage of IFAM.
 * Phenotype file (e.g. `demo_data/pheno.txt`): this file includes the phenotypic records, the environmental covariates, fixed and random effects. The first column must be the individual id, the second column is phenotypic records (optional), header should be included in the file.
 
 * Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs, note that the genome version of the annotation file and genome file should be the same. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using bedtools, PLINK, vcftools, and other softwares.
-* 
+```bash
+# Using bedtools to filter annotationed SNPs
+bedtools intersect -a demo.bed -b enhancer.bed -wa -u > enhancer.txt
+# Using PLINK to filter annotationed SNPs
+plink --bfile demo --extract enhancer.bed --range --make-bed --out enhancer
+awk '{print $2}' enhancer.bim > enhancer.txt
+# Using vcftools to filter annotationed SNPs
+
+````
+
+
 For other parapeters, please use the commond "--help"
 
 ### Tutorial for Summary Analysis for Annotations (SAA)
@@ -32,7 +42,7 @@ Rscript ${SAA} --map ${map} --map_format ${map_format} --anno ${anno} --outPath 
         --output_prefix ${output_prefix}
 ````
 
-### Tutorial for IFAM 
+### Tutorial for running the IFAM model
 Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) software in advance
 ```bash
 # Set parameters
