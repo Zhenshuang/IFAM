@@ -15,11 +15,11 @@ In this softare, we use `**.R` scripts to make the usage of IFAM.
 
 * Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs, note that the genome version of the annotation file and genome file should be the same. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using bedtools or PLINK softwares.
 ```bash
-       # Using bedtools to filter annotationed SNPs
-       bedtools intersect -a demo.bed -b enhancer.bed -wa -u > enhancer.txt
-       # Using PLINK to filter annotationed SNPs
-       plink --bfile demo --extract enhancer.bed --range --make-bed --out enhancer
-       awk '{print $2}' enhancer.bim > enhancer.txt
+    # Using bedtools to filter annotationed SNPs
+    bedtools intersect -a demo.bed -b enhancer.bed -wa -u > enhancer.txt
+    # Using PLINK to filter annotationed SNPs
+    plink --bfile demo --extract enhancer.bed --range --make-bed --out enhancer
+    awk '{print $2}' enhancer.bim > enhancer.txt
 ````
 
 For other parapeters, please use the commond "--help"
@@ -27,12 +27,12 @@ For other parapeters, please use the commond "--help"
 ### Tutorial for Summary Analysis for Annotations (SAA)
 ```bash
 # Set parameters
-SAA=/SAA.R
-map=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/geno/pig.bim
+SAA=/Scripts/SAA.R
+map=/demo_data/demo.bim
 map_format=bim  # or map3
-anno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/OCR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/NFR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/footprint.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/enhancer.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/any_motif.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter_narrowPeak.txt
-outPath=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/test/
-output_prefix=test1
+anno=/demo_data/A1.txt,/demo_data/A2.txt,/demo_data/A3.txt,/demo_data/A4.txt,/demo_data/A5.txt,/demo_data/A6.txt,/demo_data/A7.txt
+outPath=/output_path/test/
+output_prefix=test
 
 # Run SAA.R
 Rscript ${SAA} --map ${map} --map_format ${map_format} --anno ${anno} --outPath ${outPath}\
@@ -43,17 +43,17 @@ Rscript ${SAA} --map ${map} --map_format ${map_format} --anno ${anno} --outPath 
 Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) software in advance
 ```bash
 # Set parameters
-IFAM=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/IFAM.R
-bfile=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/geno/pig
-pheno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/phe/BF.cv.phe.txt
-anno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/OCR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/NFR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/footprint.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/enhancer.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/any_motif.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter_narrowPeak.txt
-anno_spec=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/signals.txt
-anno_GRM=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/OCR.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/NFR.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/footprint.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/enhancer.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/any_motif.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/active_promoter.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/active_promoter_narrowPeak.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/signals.GA
-weight=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/BF_cv_1_weight.txt
-#VCfile=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/BF.vars
-outPath=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/test/
-output_prefix=test1
-pheno_pos=3
+IFAM=/Scripts/IFAM.R
+bfile=/demo_data/demo
+pheno=/demo_data/phenotype.txt
+anno=/demo_data/A1.txt,/demo_data/A2.txt,/demo_data/A3.txt,/demo_data/A4.txt,/demo_data/A5.txt,/demo_data/A6.txt,/demo_data/A7.txt
+anno_spec=/demo_data/signals.txt
+anno_GRM=/demo_data/A1.GA,/demo_data/A2.GA,/demo_data/A3.GA,/demo_data/A4.GA,/demo_data/A5.GA,/demo_data/A6.GA,/demo_data/A7.GA
+weight=/demo_data/SNP_weight.txt
+#VCfile=/demo_data/trait.vars
+outPath=/output_path/test/
+output_prefix=test
+pheno_pos=2
 randomMax=5
 thread=2
 VCmethod=AI
@@ -70,17 +70,17 @@ Rscript ${IFAM} --bfile ${bfile} --pheno ${pheno} --anno ${anno} --anno_spec ${a
 Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) and [PLINK] softwares in advance
 ```bash
 # Set parameters
-EA=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/EA.R
-bfile=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/geno/pig
-pheno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/phe/BF.cv.phe.txt
-anno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/OCR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/NFR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/footprint.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/enhancer.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/any_motif.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter_narrowPeak.txt
-anno_GRM=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/OCR.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/NFR.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/footprint.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/enhancer.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/any_motif.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/active_promoter.GA,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/GRMs/active_promoter_narrowPeak.GA
+EA=/Scripts/EA.R
+bfile=/demo_data/demo
+pheno=/demo_data/phenotype.txt
+anno=/demo_data/A1.txt,/demo_data/A2.txt,/demo_data/A3.txt,/demo_data/A4.txt,/demo_data/A5.txt,/demo_data/A6.txt,/demo_data/A7.txt
+anno_GRM=/demo_data/A1.GA,/demo_data/A2.GA,/demo_data/A3.GA,/demo_data/A4.GA,/demo_data/A5.GA,/demo_data/A6.GA,/demo_data/A7.GA
 Pruning=FALSE
 indep_pairwise=1000,100,0.2
 plink=plink
-outPath=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/test/
-output_prefix=test1
-pheno_pos=3
+outPath=/output_path/test/
+output_prefix=test
+pheno_pos=2
 thread=2
 VCmethod=AI
 tmp_files=FALSE
