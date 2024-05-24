@@ -67,7 +67,7 @@ Rscript ${IFAM} --bfile ${bfile} --pheno ${pheno} --anno ${anno} --anno_spec ${a
 ````
 
 ### Tutorial for Evaluating the Annotations (EA)
-Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) and [PLINK] softwares in advance
+Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) and [PLINK](https://zzz.bwh.harvard.edu/plink/) softwares in advance
 ```bash
 # Set parameters
 EA=/Scripts/EA.R
