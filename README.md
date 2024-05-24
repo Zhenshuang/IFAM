@@ -13,24 +13,21 @@ In this softare, we use `**.R` scripts to make the usage of IFAM.
 
 * Phenotype file (e.g. `demo_data/pheno.txt`): this file includes the phenotypic records, the environmental covariates, fixed and random effects. The first column must be the individual id, the second column is phenotypic records (optional), header should be included in the file.
 
-* Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs, note that the genome version of the annotation file and genome file should be the same. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using bedtools, PLINK, vcftools, and other softwares.
+* Annotation files: a list of the annotation files, the file name must be "annotation_names.txt" eg. "enhancer.txt". Each annotation file has only one column representing the position of annotationed SNPs, note that the genome version of the annotation file and genome file should be the same. If the annotation file is "*.bed" format, users can filtered all annotationed SNPs using bedtools or PLINK softwares.
 ```bash
-# Using bedtools to filter annotationed SNPs
-bedtools intersect -a demo.bed -b enhancer.bed -wa -u > enhancer.txt
-# Using PLINK to filter annotationed SNPs
-plink --bfile demo --extract enhancer.bed --range --make-bed --out enhancer
-awk '{print $2}' enhancer.bim > enhancer.txt
-# Using vcftools to filter annotationed SNPs
-
+       # Using bedtools to filter annotationed SNPs
+       bedtools intersect -a demo.bed -b enhancer.bed -wa -u > enhancer.txt
+       # Using PLINK to filter annotationed SNPs
+       plink --bfile demo --extract enhancer.bed --range --make-bed --out enhancer
+       awk '{print $2}' enhancer.bim > enhancer.txt
 ````
-
 
 For other parapeters, please use the commond "--help"
 
 ### Tutorial for Summary Analysis for Annotations (SAA)
 ```bash
 # Set parameters
-SAA=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/SAA.R
+SAA=/SAA.R
 map=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/geno/pig.bim
 map_format=bim  # or map3
 anno=/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/OCR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/NFR.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/footprint.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/enhancer.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/any_motif.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter.txt,/share/home/yzbsl_tangzs/IFAM/IFAM_demodata/annotations/active_promoter_narrowPeak.txt
