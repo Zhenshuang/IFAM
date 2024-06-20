@@ -24,34 +24,19 @@ In this softare, we use `**.R` scripts to make the usage of IFAM.
 
 For other parapeters, please use the commond "--help"
 
-### Tutorial for Summary Analysis for Annotations (SAA)
-```bash
-# Set parameters
-SAA=/Scripts/SAA.R
-map=/demo_data/demo.bim
-map_format=bim  # or map3
-anno=/demo_data/A1.txt,/demo_data/A2.txt,/demo_data/A3.txt,/demo_data/A4.txt,/demo_data/A5.txt,/demo_data/A6.txt,/demo_data/A7.txt
-outPath=/output_path/test/
-output_prefix=test
-
-# Run SAA.R
-Rscript ${SAA} --map ${map} --map_format ${map_format} --anno ${anno} --outPath ${outPath}\
-        --output_prefix ${output_prefix}
-````
-
 ### Tutorial for running the IFAM model
 Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) software in advance
 ```bash
 # Set parameters
-IFAM=/Scripts/IFAM.R
-bfile=/demo_data/demo
-pheno=/demo_data/phenotype.txt
-anno=/demo_data/A1.txt,/demo_data/A2.txt,/demo_data/A3.txt,/demo_data/A4.txt,/demo_data/A5.txt,/demo_data/A6.txt,/demo_data/A7.txt
-anno_spec=/demo_data/signals.txt
-anno_GRM=/demo_data/A1.GA,/demo_data/A2.GA,/demo_data/A3.GA,/demo_data/A4.GA,/demo_data/A5.GA,/demo_data/A6.GA,/demo_data/A7.GA
-weight=/demo_data/SNP_weight.txt
+IFAM=./Scripts/IFAM.R
+bfile=./demo_data/geno/demo
+pheno=./demo_data/phe/phenotype.txt
+anno=./demo_data/annotations/A1.txt,./demo_data/annotations/A2.txt,./demo_data/annotations/A3.txt,./demo_data/annotations/A4.txt,./demo_data/annotations/A5.txt,./demo_data/annotations/A6.txt,./demo_data/annotations/A7.txt
+anno_spec=./demo_data/annotations/A8.txt
+anno_GRM=./demo_data/GRMs/A1.GA,./demo_data/GRMs/A2.GA,./demo_data/GRMs/A3.GA,./demo_data/GRMs/A4.GA,./demo_data/GRMs/A5.GA,./demo_data/GRMs/A6.GA,./demo_data/GRMs/A7.GA,./demo_data/GRMs/A8.GA
+weight=./demo_data/SNP_weight.txt
 #VCfile=/demo_data/trait.vars
-outPath=/output_path/test/
+outPath=./test/
 output_prefix=test
 pheno_pos=2
 randomMax=5
