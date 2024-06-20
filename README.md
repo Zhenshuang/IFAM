@@ -46,7 +46,7 @@ tmp_files=FALSE
 
 # Run IFAM
 Rscript ${IFAM} --bfile ${bfile} --pheno ${pheno} --anno ${anno} --anno_spec ${anno_spec}\
-        --anno_GRM ${anno_GRM} --pheno_pos ${pheno_pos} --weight ${weight} --VCfile ${VCfile} --randomMax ${randomMax}\
+        --anno_GRM ${anno_GRM} --pheno_pos ${pheno_pos} --weight ${weight} --randomMax ${randomMax}\
         --VCmethod ${VCmethod} --thread ${thread} --tmp_files ${tmp_files} --outPath ${outPath}\
         --output_prefix ${output_prefix}
 ````
