@@ -31,9 +31,9 @@ Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) softwar
 IFAM=./Scripts/IFAM.R
 bfile=./demo_data/geno/demo
 pheno=./demo_data/phe/phenotype.txt
-anno=./demo_data/annotations/A1.txt,./demo_data/annotations/A2.txt,./demo_data/annotations/A3.txt,./demo_data/annotations/A4.txt,./demo_data/annotations/A5.txt,./demo_data/annotations/A6.txt,./demo_data/annotations/A7.txt
+anno_folder=./demo_data/annotations/A1.txt,./demo_data/annotations/A2.txt,./demo_data/annotations/A3.txt,./demo_data/annotations/A4.txt,./demo_data/annotations/A5.txt,./demo_data/annotations/A6.txt,./demo_data/annotations/A7.txt
 anno_spec=./demo_data/annotations/A8.txt
-anno_GRM=./demo_data/GRMs/A1.GA,./demo_data/GRMs/A2.GA,./demo_data/GRMs/A3.GA,./demo_data/GRMs/A4.GA,./demo_data/GRMs/A5.GA,./demo_data/GRMs/A6.GA,./demo_data/GRMs/A7.GA,./demo_data/GRMs/A8.GA
+GRMs_folder=./demo_data/GRMs/A1.GA,./demo_data/GRMs/A2.GA,./demo_data/GRMs/A3.GA,./demo_data/GRMs/A4.GA,./demo_data/GRMs/A5.GA,./demo_data/GRMs/A6.GA,./demo_data/GRMs/A7.GA,./demo_data/GRMs/A8.GA
 weight=./demo_data/SNP_weight.txt
 #VCfile=/demo_data/trait.vars
 outPath=./test/
