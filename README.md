@@ -31,24 +31,24 @@ Please install [HIBLUP](https://www.hiblup.com/tutorials#running-hiblup) softwar
 IFAM=./Scripts/IFAM.R
 bfile=./demo_data/geno/demo
 pheno=./demo_data/phe/phenotype.txt
-anno_folder=./demo_data/annotations/A1.txt,./demo_data/annotations/A2.txt,./demo_data/annotations/A3.txt,./demo_data/annotations/A4.txt,./demo_data/annotations/A5.txt,./demo_data/annotations/A6.txt,./demo_data/annotations/A7.txt
-anno_spec=./demo_data/annotations/A8.txt
-GRMs_folder=./demo_data/GRMs/A1.GA,./demo_data/GRMs/A2.GA,./demo_data/GRMs/A3.GA,./demo_data/GRMs/A4.GA,./demo_data/GRMs/A5.GA,./demo_data/GRMs/A6.GA,./demo_data/GRMs/A7.GA,./demo_data/GRMs/A8.GA
+anno_folder=./demo_data/annotations
+anno_spec=A8
+GRMs_folder=./demo_data/GRMs
 weight=./demo_data/SNP_weight.txt
-#VCfile=/demo_data/trait.vars
+VCfile=./demo_data/trait.vars
 outPath=./test/
-output_prefix=test
+output_prefix=IFAM
 pheno_pos=2
 randomMax=5
 thread=2
 VCmethod=AI
-tmp_files=FALSE
+tmp_files=TRUE
 
 # Run IFAM
-Rscript ${IFAM} --bfile ${bfile} --pheno ${pheno} --anno ${anno} --anno_spec ${anno_spec}\
-        --anno_GRM ${anno_GRM} --pheno_pos ${pheno_pos} --weight ${weight} --randomMax ${randomMax}\
+Rscript ${IFAM} --bfile ${bfile} --pheno ${pheno} --anno_folder ${anno_folder} --anno_spec ${anno_spec}\
+        --pheno_pos ${pheno_pos} --GRMs_folder ${GRMs_folder} --weight ${weight} --randomMax ${randomMax}\
         --VCmethod ${VCmethod} --thread ${thread} --tmp_files ${tmp_files} --outPath ${outPath}\
-        --output_prefix ${output_prefix}
+        --VCfile ${VCfile} --output_prefix ${output_prefix}
 ````
 
 ### Tutorial for Evaluating the Annotations (EA)
